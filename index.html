@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src = "jquery-2.2.4.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+        <style>
+
+            *{
+                margin: 0;
+                padding: 0;
+            }
+
+            .box{
+                display: inline-block;
+                width: 800px;
+                height: 400px;
+                margin-bottom: 20px;
+            }
+
+            body{
+                height: 1000px;
+                background-color: #000000;
+                color: #ffffff;
+            }
+
+            .text{
+                background-image: url("img1.png");
+            }
+
+            .text:hover{
+                background-image: url("img2.jpg");
+            }
+
+        </style>
+        <script>
+           console.log("in script");
+         //   $("#test" ).click(function() {
+         //       console.log("clicked");
+      //          var audio = document.getElementById("sound");
+      //          audio.play();
+       //     });
+
+            function f() {
+                var audio = $("#sound")[0];
+                audio.play();
+            }
+
+        </script>
+    <body>
+        <audio id="sound">
+            <source src="ain't_nobody.mp3"></source>
+            Your browser not support.
+        </audio>
+
+        <div class="rows"> <div class="box text" id="test" onclick="f()"></div> <div class="box text"></div> <div class="box text"></div></div>
+        <div class="rows"> <div class="box text"></div> <div class="box text"></div> <div class="box text"></div></div>
+        <div class="rows"> <div class="box text"></div> <div class="box text"></div> <div class="box text"></div></div>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    </body>
+</html>
