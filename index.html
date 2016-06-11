@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <script src = "jquery-2.2.4.min.js"></script>
         <meta charset="UTF-8">
@@ -18,7 +17,14 @@
                 width: 1920px;
                 height: 1080px;
                 margin-bottom: 20px;
+            }
+
+            .turnOff{
                 background-image: url("demo/rose_pepsi000.png");
+            }
+
+            .turnOn{
+                background-image: url("demo/rose-pepsi.gif");
             }
 
             body{
@@ -26,12 +32,6 @@
                 background-color: #000000;
                 color: #ffffff;
             }
-
-
-            /*.story:hover{*/
-                /*background-image: url("demo/rose-pepsi.gif");*/
-            /*}*/
-
 
         </style>
 
@@ -42,46 +42,42 @@
             <!--<source src="story3.mp3"></source>-->
             Your browser does not support audio on this page.
         </audio>
-        <div class="row"> <div class="story" id="story0"></div> <div class="story"></div> <div class="story"></div></div>
-        <div class="row"> <div class="story"></div> <div class="box"></div> <div class="story"></div></div>
-        <div class="row"> <div class="story"></div> <div class="story"></div> <div class="story"></div></div>
-        <div class="row"> <div class="story"></div> <div class="story"></div> <div class="story"></div></div>
+        <div class="row"> <div class="story turnOff" id="story0"></div> <div class="story turnOff" id="story1"></div> <div class="story turnOff" id="story2"></div></div>
+        <div class="row"> <div class="story turnOff" id="story3"></div> <div class="story turnOff" id="story4"></div> <div class="story turnOff" id="story5"></div></div>
+        <div class="row"> <div class="story turnOff" id="story6"></div> <div class="story turnOff" id="story7"></div> <div class="story turnOff" id="story8"></div></div>
+        <div class="row"> <div class="story turnOff" id="story9"></div> <div class="story turnOff" id="story10"></div> <div class="story turnOff" id="story11"></div></div>
         <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <script>
-            $(".story").hover(
-                    function()
-                    {
-                        console.log("in hver1");
-                        console.log(this);
-                        $(this.id).css("background-image", "demo/rose-pepsi.gif");
-                    },
-                    function()
-                    {
-                        console.log("in hver2");
-                        console.log(this);
-                        $(this).css("background-image", "demo/rose_pepsi000.png");
-                    }
-            );
+            function remove_turn_off(callback) {
+                console.log("removing class");
+                $("#story0").removeClass('turnOff');
+                callback();
+            }
 
+            var turn_on = function () {
+                console.log("in mouse hover");
+                remove_turn_off(function() {
+                    console.log("adding class turn on");
+                    $("#story0").addClass('turnOn');
+                });
+            }
 
+            function remove_turn_on(callback) {
+                console.log("removing class turn on");
+                $("#story0").removeClass('turnOn');
+                callback();
+            }
 
-            // replace this with switch case below
-            $("#story0").hover(function() {
-                $("#sound")[0].play();
-            });
+            var turn_off = function () {
+                console.log("in mouse out");
+                remove_turn_on(function() {
+                    console.log("adding class turn off");
+                    $("#story0").addClass('turnOff');
+                });
+            }
 
-// ADD ALL AUDOI FILES AND +7 cases
-//            $(".story").hover(function() {
-//                var current_id = $(this).attr('id');
-//                switch(current_id) {
-//                    case "story0":
-//                        $("#sound")[0].play();
-//                        break;
-//                    case "story1":
-//                        //$("#sound")[1].play();
-//                        break;
-//                }
-//            });
+            $("#story0").hover(turn_on, turn_off);
+
         </script>
     </body>
 </html>
