@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script src = "jquery-2.2.4.min.js"></script>
+
     <head>
+        <script src = "jquery-2.2.4.min.js"></script>
         <meta charset="UTF-8">
         <title>Title</title>
     </head>
@@ -12,11 +13,12 @@
                 padding: 0;
             }
 
-            .box{
+            .story{
                 display: inline-block;
-                width: 800px;
-                height: 400px;
+                width: 1920px;
+                height: 1080px;
                 margin-bottom: 20px;
+                background-image: url("demo/rose_pepsi000.png");
             }
 
             body{
@@ -25,38 +27,61 @@
                 color: #ffffff;
             }
 
-            .text{
-                background-image: url("img1.png");
-            }
 
-            .text:hover{
-                background-image: url("img2.jpg");
-            }
+            /*.story:hover{*/
+                /*background-image: url("demo/rose-pepsi.gif");*/
+            /*}*/
+
 
         </style>
-        <script>
-           console.log("in script");
-         //   $("#test" ).click(function() {
-         //       console.log("clicked");
-      //          var audio = document.getElementById("sound");
-      //          audio.play();
-       //     });
 
-            function f() {
-                var audio = $("#sound")[0];
-                audio.play();
-            }
-
-        </script>
     <body>
         <audio id="sound">
             <source src="ain't_nobody.mp3"></source>
-            Your browser not support.
+            <!--<source src="story2.mp3"></source>-->
+            <!--<source src="story3.mp3"></source>-->
+            Your browser does not support audio on this page.
         </audio>
-
-        <div class="rows"> <div class="box text" id="test" onclick="f()"></div> <div class="box text"></div> <div class="box text"></div></div>
-        <div class="rows"> <div class="box text"></div> <div class="box text"></div> <div class="box text"></div></div>
-        <div class="rows"> <div class="box text"></div> <div class="box text"></div> <div class="box text"></div></div>
+        <div class="row"> <div class="story" id="story0"></div> <div class="story"></div> <div class="story"></div></div>
+        <div class="row"> <div class="story"></div> <div class="box"></div> <div class="story"></div></div>
+        <div class="row"> <div class="story"></div> <div class="story"></div> <div class="story"></div></div>
+        <div class="row"> <div class="story"></div> <div class="story"></div> <div class="story"></div></div>
         <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script>
+            $(".story").hover(
+                    function()
+                    {
+                        console.log("in hver1");
+                        console.log(this);
+                        $(this.id).css("background-image", "demo/rose-pepsi.gif");
+                    },
+                    function()
+                    {
+                        console.log("in hver2");
+                        console.log(this);
+                        $(this).css("background-image", "demo/rose_pepsi000.png");
+                    }
+            );
+
+
+
+            // replace this with switch case below
+            $("#story0").hover(function() {
+                $("#sound")[0].play();
+            });
+
+// ADD ALL AUDOI FILES AND +7 cases
+//            $(".story").hover(function() {
+//                var current_id = $(this).attr('id');
+//                switch(current_id) {
+//                    case "story0":
+//                        $("#sound")[0].play();
+//                        break;
+//                    case "story1":
+//                        //$("#sound")[1].play();
+//                        break;
+//                }
+//            });
+        </script>
     </body>
 </html>
