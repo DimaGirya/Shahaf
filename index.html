@@ -48,35 +48,62 @@
         <div class="row"> <div class="story turnOff" id="story9"></div> <div class="story turnOff" id="story10"></div> <div class="story turnOff" id="story11"></div></div>
         <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <script>
-            function remove_turn_off(callback) {
-                console.log("removing class");
-                $("#story0").removeClass('turnOff');
-                callback();
+
+            function remove_turn_off(story, turn_on) {
+                $(story).removeClass('turnOff');
+                turn_on();
             }
 
-            var turn_on = function () {
-                console.log("in mouse hover");
-                remove_turn_off(function() {
-                    console.log("adding class turn on");
-                    $("#story0").addClass('turnOn');
+            var animate = function (story) {
+                story = "#"+story.id;
+                remove_turn_off(story, function() {
+                    $(story).addClass('turnOn');
                 });
             }
 
-            function remove_turn_on(callback) {
-                console.log("removing class turn on");
-                $("#story0").removeClass('turnOn');
-                callback();
+            function remove_turn_on(story, turn_off) {
+                $(story).removeClass('turnOn');
+                turn_off();
             }
 
-            var turn_off = function () {
-                console.log("in mouse out");
-                remove_turn_on(function() {
-                    console.log("adding class turn off");
-                    $("#story0").addClass('turnOff');
+            var reset = function (story) {
+                story = "#"+story.id;
+                remove_turn_on(story, function() {
+                    $(story).addClass('turnOff');
                 });
             }
 
-            $("#story0").hover(turn_on, turn_off);
+            $('.story').hover(function(){animate(this)}, function(){reset(this)});
+
+
+
+
+
+
+
+//            function remove_turn_off(callback) {
+//                $("#story0").removeClass('turnOff');
+//                callback();
+//            }
+//
+//            var turn_on = function () {
+//                remove_turn_off(function() {
+//                    $("#story0").addClass('turnOn');
+//                });
+//            }
+//
+//            function remove_turn_on(callback) {
+//                $("#story0").removeClass('turnOn');
+//                callback();
+//            }
+//
+//            var turn_off = function () {
+//                remove_turn_on(function() {
+//                    $("#story0").addClass('turnOff');
+//                });
+//            }
+//
+//            $("#story0").hover(turn_on, turn_off);
 
         </script>
     </body>
