@@ -6,7 +6,6 @@
         <title>Title</title>
     </head>
         <style>
-
             *{
                 margin: 0;
                 padding: 0;
@@ -20,47 +19,41 @@
                 background-image: url("demo/rose_pepsi000.png");
             }
 
-            /*.turnOff{*/
-                /*background-image: url("demo/rose_pepsi000.png");*/
-            /*}*/
-
-            /*.turnOn{*/
-                /*background-image: url("demo/rose-pepsi.gif");*/
-            /*}*/
-
             body{
                 height: 1000px;
                 background-color: #000000;
                 color: #ffffff;
             }
-
         </style>
-
     <body>
-        <audio id="sound">
-            <source src="ain't_nobody.mp3"></source>
-            <!--<source src="story2.mp3"></source>-->
-            <!--<source src="story3.mp3"></source>-->
-            Your browser does not support audio on this page.
-        </audio>
-        <div class="row"> <div class="story" id="story0"></div> <div class="story turnOff" id="story1"></div> <div class="story turnOff" id="story2"></div></div>
-        <div class="row"> <div class="story turnOff" id="story3"></div> <div class="story turnOff" id="story4"></div> <div class="story turnOff" id="story5"></div></div>
-        <div class="row"> <div class="story turnOff" id="story6"></div> <div class="story turnOff" id="story7"></div> <div class="story turnOff" id="story8"></div></div>
-        <div class="row"> <div class="story turnOff" id="story9"></div> <div class="story turnOff" id="story10"></div> <div class="story turnOff" id="story11"></div></div>
-        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <div class="row"> <div class="story" id="story0"><audio class="storiesAudio"><source src="ain't_nobody.mp3"></source></div> <div class="story" id="story1"><audio class="storiesAudio"><source src="locked_away.mp3"></source></div> <div class="story" id="story2"></div></div>
+        <div class="row"> <div class="story" id="story3"></div> <div class="story" id="story4"></div> <div class="story" id="story5"></div></div>
+        <div class="row"> <div class="story" id="story6"></div> <div class="story" id="story7"></div> <div class="story" id="story8"></div></div>
+        <div class="row"> <div class="story" id="story9"></div> <div class="story" id="story10"></div> <div class="story" id="story11"></div></div>
         <script>
+            $('.story').hover(function(){animate(this)}, function(){reset(this)});
+
             var animate = function (story) {
-                story = "#" + story.id;
-                var url = "demo/rose-pepsi.gif?p" + new Date().getTime();
-                $(story).css("background-image", "url(" + url + ")");
+                var url = "demo/rose-pepsi.gif?p" + new Date().getTime(); //workaroud gif caching
+                $("#" + story.id).css("background-image", "url(" + url + ")");
+                play_story(story)
             }
 
             var reset = function (story) {
-                story = "#" + story.id;
-                $(story).css("background-image", "url('demo/rose_pepsi000.png')");
+                $("#" + story.id).css("background-image", "url('demo/rose_pepsi000.png')");
+                pause_story(story);
             }
 
-            $('.story').hover(function(){animate(this)}, function(){reset(this)});
+            function play_story(story){
+                var audio = $(story).children('audio')[0];
+                audio.play();
+            }
+
+            function pause_story(story) {
+                var audio = $(story).children('audio')[0];
+                audio.pause();
+                //audio.currentTime = 0; //reset sound on mouse out
+            }
         </script>
     </body>
 </html>
