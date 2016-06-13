@@ -3,21 +3,13 @@
 <head>
     <script src = "jquery-2.2.4.min.js"></script>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Atlas</title>
 </head>
 <style>
     *{
         margin: 0;
         padding: 0;
     }
-
-    /*.story{*/
-        /*display: inline-block;*/
-        /*width: 1920px;*/
-        /*height: 1080px;*/
-        /*margin-bottom: 20px;*/
-        /*background-image: url("images/animations/rose_pepsi000.png");*/
-    /*}*/
 
     body{
         background-color: #000000;
@@ -35,51 +27,91 @@
         position: absolute;
     }
 
-    #element0{
+    #story0{
         left: 8%;
         top: 9%;
     }
 
-    #element1{
-        left: 30%;
+    #story1{
+        left: 50%;
         top: 3%;
     }
 
-    #element2{
+    #story2{
         left: 70%;
         top: 8%;
     }
 
-    #element3{
+    #element1{
         left: 8%;
         top: 60%;
     }
 
-
-
 </style>
 <body>
     <div id="wrapper">
-       <div id="element0" class="story">
+       <div id="story0" class="story">
            <audio class="storiesAudio"><source src="audio/ain't_nobody.mp3"></source></audio>
-           <img src="images/static/el0.jpg">
+           <img src="images/static/story0.jpg">
        </div>
-        <div id="element1" class="story">
+        <div id="story1" class="story">
             <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/el1.jpg">
+            <img src="images/static/story1.jpg">
         </div>
-        <div id="element2" class="story">
+        <div id="story2" class="story">
             <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/el2.jpg">
+            <img src="images/static/story2.jpg">
+        </div>
+        <div id="element0">
+            <img src="images/static/element0.jpg">
+        </div>
+        <div id="element1">
+            <img src="images/static/element1.jpg">
+        </div>
+        <div id="element2">
+            <img src="images/static/element2.jpg">
+        </div>
+        <div id="story3" class="story">
+            <audio class="storiesAudio"><source src="audio/ain't_nobody.mp3"></source></audio>
+            <img src="images/static/story3.jpg">
+        </div>
+        <div id="story4" class="story">
+            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
+            <img src="images/static/story4.jpg">
+        </div>
+        <div id="story5" class="story">
+            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
+            <img src="images/static/story5.jpg">
+        </div>
+        <div id="story6" class="story">
+            <audio class="storiesAudio"><source src="audio/ain't_nobody.mp3"></source></audio>
+            <img src="images/static/story6.jpg">
+        </div>
+        <div id="story7" class="story">
+            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
+            <img src="images/static/story7.jpg">
+        </div>
+        <div id="story8" class="story">
+            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
+            <img src="images/static/story8.jpg">
         </div>
         <div id="element3">
-            <img src="images/static/el2.jpg">
+            <img src="images/static/element3.jpg">
         </div>
         <div id="element4">
-            <img src="images/static/el2.jpg">
+            <img src="images/static/element4.jpg">
         </div>
         <div id="element5">
-            <img src="images/static/el2.jpg">
+            <img src="images/static/element5.jpg">
+        </div>
+        <div id="element6">
+            <img src="images/static/element6.jpg">
+        </div>
+        <div id="element7">
+            <img src="images/static/element7.jpg">
+        </div>
+        <div id="element8">
+            <img src="images/static/element8.jpg">
         </div>
     </div>
 
@@ -87,18 +119,40 @@
 
         $('.story > img').hover(function(){animate(this)}, function(){reset(this)});
 
+        var stories_animations_urls = {
+            "story0": "images/animations/rose_pepsi108.png",
+            "story1": "images/animations/rose_pepsi108.png",
+            "story2": "images/animations/rose_pepsi108.png",
+            "story3": "images/animations/rose_pepsi108.png",
+            "story4": "images/animations/rose_pepsi108.png",
+            "story5": "images/animations/rose_pepsi108.png",
+            "story6": "images/animations/rose_pepsi108.png",
+            "story7": "images/animations/rose_pepsi108.png",
+            "story8": "images/animations/rose_pepsi108.png",
+        }
 
-        var animate = function (image) {
-            var element =  $(image).parent()[0];
-            var animation_url = animations_urls[element.id] + "?p" + new Date().getTime();//workaroud gif caching.
-            image.src = animation_url;
+        var stories_original_urls = {
+            "story0": "images/static/el0.jpg",
+            "story1": "images/static/el1.jpg",
+            "story2": "images/static/el2.jpg",
+            "story3": "images/static/el2.jpg",
+            "story4": "images/static/el2.jpg",
+            "story5": "images/static/el2.jpg",
+            "story6": "images/static/el0.jpg",
+            "story7": "images/static/el1.jpg",
+            "story8": "images/static/el2.jpg",
+        };
+
+        var animate = function (img) {
+            var element =  $(img).parent()[0];
+            var animation_url = stories_animations_urls[element.id] + "?p" + new Date().getTime();//workaroud gif caching.
+            img.src = animation_url;
                 play_story(element.id);
         }
 
-
         var reset = function (image) {
             var element =  $(image).parent()[0];
-            image.src = original_urls[element.id];
+            image.src = stories_original_urls[element.id];
                 pause_story(element.id);
         }
 
@@ -113,69 +167,46 @@
             audio.currentTime = 0; //reset sound on mouse out
         }
 
-
-        var animations_urls = {
-            "element0": "images/animations/rose_pepsi108.png",
-            "element1": "images/animations/rose_pepsi108.png",
-            "element2": "images/animations/rose_pepsi108.png",
-            "element3": "images/animations/rose_pepsi108.png",
-            "element4": "images/animations/rose_pepsi108.png",
-            "element5": "images/animations/rose_pepsi108.png",
-            "element6": "images/animations/rose_pepsi108.png",
-            "element7": "images/animations/rose_pepsi108.png",
-            "element8": "images/animations/rose_pepsi108.png",
-            "element10": "images/animations/rose_pepsi108.png",
-            "element11": "images/animations/rose_pepsi108.png",
-            "element12": "images/animations/rose_pepsi108.png",
-            "element13": "images/animations/rose_pepsi108.png",
-            "element14": "images/animations/rose_pepsi108.png",
-            "element15": "images/animations/rose_pepsi108.png",
-            "element16": "images/animations/rose_pepsi108.png"
+        var elements_animation_urls = {
+            "element0": "images/animations/light.gif",
+            "element1": "images/animations/light.gif",
+            "element2": "images/animations/light.gif",
+            "element3": "images/animations/light.gif",
+            "element4": "images/animations/light.gif",
+            "element5": "images/animations/light.gif",
+            "element6": "images/animations/light.gif",
+            "element7": "images/animations/light.gif",
+            "element8": "images/animations/light.gif"
         }
 
-        var original_urls = {
-            "element0": "images/static/el0.jpg",
-            "element1": "images/static/el1.jpg",
+        var elements_original_urls = {
+            "element0": "images/static/el2.jpg",
+            "element1": "images/static/el2.jpg",
             "element2": "images/static/el2.jpg",
             "element3": "images/static/el2.jpg",
             "element4": "images/static/el2.jpg",
             "element5": "images/static/el2.jpg",
-            "element6": "images/static/el0.jpg",
-            "element7": "images/static/el1.jpg",
-            "element8": "images/static/el2.jpg",
-            "element9": "images/static/el0.jpg",
-            "element10": "images/static/el1.jpg",
-            "element11": "images/static/el2.jpg",
-            "element12": "images/static/el0.jpg",
-            "element13": "images/static/el1.jpg",
-            "element14": "images/static/el2.jpg",
-            "element15": "images/static/el0.jpg",
-            "element16": "images/static/el1.jpg",
-            "element17": "images/static/el2.jpg"
-        };
-
-        var elements_to_light = {
-            "element3": "images/animations/light.gif",
-            "element4": "images/animations/light.gif",
-            "element5": "images/animations/light.gif"
+            "element6": "images/static/el2.jpg",
+            "element7": "images/static/el2.jpg",
+            "element8": "images/static/el2.jpg"
         }
 
-        var animate_interval = setInterval(random_animate, 2000);
+        //var animate_interval = setInterval(random_animate, 2000);
 
         function random_animate() {
-            var element = pick_random_element(elements_to_light);
-            console.log("now animating "+ element);
-            console.log(element);
-            var animation_url = elements_to_light[element] + "?p" + new Date().getTime();//workaroud gif caching.
-            $("#"+element).children()[0].src = animation_url;
+            var element_id = pick_random_element(elements_animation_urls);
+            console.log("now animating "+ element_id);
+            console.log(element_id);
+            var animation_url = elements_animation_urls[element_id] + "?p" + new Date().getTime();//workaroud gif caching.
+            $("#"+element_id).children()[0].src = animation_url;
             var reset_interval = setInterval(random_reset(), 2000);
             }
 
             function random_reset() {
-                var element = pick_random_element(elements_to_light);
+                var element = pick_random_element(elements_animation_urls);
                 console.log("now reseting" + element);
                 var img = $("#"+element).children()[0];
-                img.src = original_urls[element];
+                img.src = elements_original_urls[element];
             }
 
             function pick_random_element(elements) {
@@ -188,19 +219,6 @@
                 }
                 return element_id;
             }
-
-
-
-
-
-
-
-
-
-            //var animation_url = animations_urls[element_id] + "?p" + new Date().getTime();
-            //$(element_id).children()[0].src = animation_url;
-
-
     </script>
 </body>
 </html>
