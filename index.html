@@ -133,7 +133,6 @@
             "element16": "images/animations/rose_pepsi108.png"
         }
 
-
         var original_urls = {
             "element0": "images/static/el0.jpg",
             "element1": "images/static/el1.jpg",
@@ -161,7 +160,6 @@
             "element5": "images/animations/light.gif"
         }
 
-
         var animate_interval = setInterval(random_animate, 2000);
 
         function random_animate() {
@@ -171,6 +169,7 @@
             var animation_url = elements_to_light[element] + "?p" + new Date().getTime();//workaroud gif caching.
             $("#"+element).children()[0].src = animation_url;
             var reset_interval = setInterval(random_reset(), 2000);
+            }
 
             function random_reset() {
                 var element = pick_random_element(elements_to_light);
@@ -182,10 +181,11 @@
             function pick_random_element(elements) {
                 var element_id;
                 var counter = 0;
-                for (var element in elements){
-                    if (Math.random() < 1/++counter){
+                for (var element in elements) {
+                    if (Math.random() < 1 / ++counter) {
                         element_id = element;
                     }
+                }
                 return element_id;
             }
 
