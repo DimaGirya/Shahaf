@@ -1,59 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src = "jquery-2.2.4.min.js"></script>
-        <meta charset="UTF-8">
-        <title>Title</title>
-    </head>
-        <style>
-            *{
-                margin: 0;
-                padding: 0;
+<head>
+    <script src = "jquery-2.2.4.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    /*.story{*/
+        /*display: inline-block;*/
+        /*width: 1920px;*/
+        /*height: 1080px;*/
+        /*margin-bottom: 20px;*/
+        /*background-image: url("images/animations/rose_pepsi000.png");*/
+    /*}*/
+
+    body{
+        background-color: #000000;
+        /*color: #ffffff;*/
+    }
+
+    #wrapper{
+        width: 1920px;
+        height: 1950px;
+        display: block;
+    }
+
+    #wrapper > div{
+        display: inline-block;
+        position: absolute;
+    }
+
+    #element0{
+        left: 8%;
+        top: 9%;
+    }
+
+    #element1{
+        left: 30%;
+        top: 3%;
+    }
+
+    #element2{
+        left: 70%;
+        top: 8%;
+    }
+
+    #element3{
+        left: 8%;
+        top: 60%;
+    }
+
+
+
+</style>
+<body>
+    <div id="wrapper">
+       <div id="element0" class="story">
+           <audio class="storiesAudio"><source src="audio/ain't_nobody.mp3"></source></audio>
+           <img src="images/static/el0.jpg">
+       </div>
+        <div id="element1" class="story">
+            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
+            <img src="images/static/el1.jpg">
+        </div>
+        <div id="element2" class="story">
+            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
+            <img src="images/static/el2.jpg">
+        </div>
+        <div id="element3">
+            <img src="images/static/el2.jpg">
+        </div>
+        <div id="element4">
+            <img src="images/static/el2.jpg">
+        </div>
+        <div id="element5">
+            <img src="images/static/el2.jpg">
+        </div>
+    </div>
+
+    <script>
+
+        $('.story > img').hover(function(){animate(this)}, function(){reset(this)});
+
+
+        var animate = function (image) {
+            var element =  $(image).parent()[0];
+            var animation_url = animations_urls[element.id] + "?p" + new Date().getTime();//workaroud gif caching.
+            image.src = animation_url;
+                play_story(element.id);
+        }
+
+
+        var reset = function (image) {
+            var element =  $(image).parent()[0];
+            image.src = original_urls[element.id];
+                pause_story(element.id);
+        }
+
+        function play_story(story){
+            var audio = $("#"+story).children('audio')[0];
+            audio.play();
+        }
+
+        function pause_story(story) {
+            var audio = $("#"+story).children('audio')[0];
+            audio.pause();
+            audio.currentTime = 0; //reset sound on mouse out
+        }
+
+
+        var animations_urls = {
+            "element0": "images/animations/rose_pepsi108.png",
+            "element1": "images/animations/rose_pepsi108.png",
+            "element2": "images/animations/rose_pepsi108.png",
+            "element3": "images/animations/rose_pepsi108.png",
+            "element4": "images/animations/rose_pepsi108.png",
+            "element5": "images/animations/rose_pepsi108.png",
+            "element6": "images/animations/rose_pepsi108.png",
+            "element7": "images/animations/rose_pepsi108.png",
+            "element8": "images/animations/rose_pepsi108.png",
+            "element10": "images/animations/rose_pepsi108.png",
+            "element11": "images/animations/rose_pepsi108.png",
+            "element12": "images/animations/rose_pepsi108.png",
+            "element13": "images/animations/rose_pepsi108.png",
+            "element14": "images/animations/rose_pepsi108.png",
+            "element15": "images/animations/rose_pepsi108.png",
+            "element16": "images/animations/rose_pepsi108.png"
+        }
+
+
+        var original_urls = {
+            "element0": "images/static/el0.jpg",
+            "element1": "images/static/el1.jpg",
+            "element2": "images/static/el2.jpg",
+            "element3": "images/static/el2.jpg",
+            "element4": "images/static/el2.jpg",
+            "element5": "images/static/el2.jpg",
+            "element6": "images/static/el0.jpg",
+            "element7": "images/static/el1.jpg",
+            "element8": "images/static/el2.jpg",
+            "element9": "images/static/el0.jpg",
+            "element10": "images/static/el1.jpg",
+            "element11": "images/static/el2.jpg",
+            "element12": "images/static/el0.jpg",
+            "element13": "images/static/el1.jpg",
+            "element14": "images/static/el2.jpg",
+            "element15": "images/static/el0.jpg",
+            "element16": "images/static/el1.jpg",
+            "element17": "images/static/el2.jpg"
+        };
+
+        var elements_to_light = {
+            "element3": "images/animations/light.gif",
+            "element4": "images/animations/light.gif",
+            "element5": "images/animations/light.gif"
+        }
+
+
+        var animate_interval = setInterval(random_animate, 2000);
+
+        function random_animate() {
+            var element = pick_random_element(elements_to_light);
+            console.log("now animating "+ element);
+            console.log(element);
+            var animation_url = elements_to_light[element] + "?p" + new Date().getTime();//workaroud gif caching.
+            $("#"+element).children()[0].src = animation_url;
+            var reset_interval = setInterval(random_reset(), 2000);
+
+            function random_reset() {
+                var element = pick_random_element(elements_to_light);
+                console.log("now reseting" + element);
+                var img = $("#"+element).children()[0];
+                img.src = original_urls[element];
             }
 
-            .story{
-                display: inline-block;
-                width: 1920px;
-                height: 1080px;
-                margin-bottom: 20px;
-                background-image: url("demo/rose_pepsi000.png");
+            function pick_random_element(elements) {
+                var element_id;
+                var counter = 0;
+                for (var element in elements){
+                    if (Math.random() < 1/++counter){
+                        element_id = element;
+                    }
+                return element_id;
             }
 
-            body{
-                height: 1000px;
-                background-color: #000000;
-                color: #ffffff;
-            }
-        </style>
-    <body>
-        <div class="row"> <div class="story" id="story0"><audio class="storiesAudio"><source src="ain't_nobody.mp3"></source></div> <div class="story" id="story1"><audio class="storiesAudio"><source src="locked_away.mp3"></source></div> <div class="story" id="story2"></div></div>
-        <div class="row"> <div class="story" id="story3"></div> <div class="story" id="story4"></div> <div class="story" id="story5"></div></div>
-        <div class="row"> <div class="story" id="story6"></div> <div class="story" id="story7"></div> <div class="story" id="story8"></div></div>
-        <div class="row"> <div class="story" id="story9"></div> <div class="story" id="story10"></div> <div class="story" id="story11"></div></div>
-        <script>
-            $('.story').hover(function(){animate(this)}, function(){reset(this)});
 
-            var animate = function (story) {
-                var url = "demo/rose-pepsi.gif?p" + new Date().getTime(); //workaroud gif caching
-                $("#" + story.id).css("background-image", "url(" + url + ")");
-                play_story(story)
-            }
 
-            var reset = function (story) {
-                $("#" + story.id).css("background-image", "url('demo/rose_pepsi000.png')");
-                pause_story(story);
-            }
 
-            function play_story(story){
-                var audio = $(story).children('audio')[0];
-                audio.play();
-            }
 
-            function pause_story(story) {
-                var audio = $(story).children('audio')[0];
-                audio.pause();
-                //audio.currentTime = 0; //reset sound on mouse out
-            }
-        </script>
-    </body>
+
+
+
+
+            //var animation_url = animations_urls[element_id] + "?p" + new Date().getTime();
+            //$(element_id).children()[0].src = animation_url;
+
+
+    </script>
+</body>
 </html>
