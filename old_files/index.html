@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src = "jquery-2.2.4.min.js"></script>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+
+            .story{
+                display: inline-block;
+                width: 1920px;
+                height: 1080px;
+                margin-bottom: 20px;
+                background-image: url("demo/rose_pepsi000.png");
+            }
+
+            body{
+                height: 1000px;
+                background-color: #000000;
+                color: #ffffff;
+            }
+        </style>
+    <body>
+        <div class="row"> <div class="story" id="story0"><audio class="storiesAudio"><source src="ain't_nobody.mp3"></source></div> <div class="story" id="story1"><audio class="storiesAudio"><source src="locked_away.mp3"></source></div> <div class="story" id="story2"></div></div>
+        <div class="row"> <div class="story" id="story3"></div> <div class="story" id="story4"></div> <div class="story" id="story5"></div></div>
+        <div class="row"> <div class="story" id="story6"></div> <div class="story" id="story7"></div> <div class="story" id="story8"></div></div>
+        <div class="row"> <div class="story" id="story9"></div> <div class="story" id="story10"></div> <div class="story" id="story11"></div></div>
+        <script>
+            $('.story').hover(function(){animate(this)}, function(){reset(this)});
+
+            var animate = function (story) {
+                var url = "demo/test.gif?p" + new Date().getTime(); //workaroud gif caching
+                $("#" + story.id).css("background-image", "url(" + url + ")");
+                play_story(story)
+            }
+
+            var reset = function (story) {
+                $("#" + story.id).css("background-image", "url('demo/rose_pepsi000.png')");
+                pause_story(story);
+            }
+
+            function play_story(story){
+                var audio = $(story).children('audio')[0];
+                audio.play();
+            }
+
+            function pause_story(story) {
+                var audio = $(story).children('audio')[0];
+                audio.pause();
+                audio.currentTime = 0; //reset sound on mouse out
+            }
+        </script>
+    </body>
+</html>

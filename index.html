@@ -3,6 +3,7 @@
 <head>
     <script src = "jquery-2.2.4.min.js"></script>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlas</title>
 </head>
 <style>
@@ -13,54 +14,107 @@
 
     body{
         background-color: #000000;
-        /*color: #ffffff;*/
     }
 
     #wrapper{
-        width: 1920px;
-        height: 1950px;
         display: block;
     }
 
-    #wrapper > div{
-        display: inline-block;
+    img{
+        width: 30%;
         position: absolute;
     }
 
+    #wrapper > div{
+        /*display: inline-block;*/
+        /*position: absolute;*/
+    }
+
     #story0{
-        left: 8%;
-        top: 9%;
+        left: 1%;
+        top: 1%;
     }
 
-    #story1{
-        left: 50%;
-        top: 3%;
+    #story1 > img{
+        top: 90%;
+        left: 10%;
     }
 
-    #story2{
-        left: 70%;
-        top: 8%;
-    }
-
-    #element1{
-        left: 8%;
+    #story2 > img{
         top: 60%;
     }
+
+    #element0{
+        left: 8%;
+        top: 80%;
+    }
+
+    #story3 > img{
+        left: 30%;
+        top: 40%;
+    }
+
+    #story4 > img{
+        left: 25%;
+        top: 85%;
+    }
+
+    #story5 > img{
+        right: 10%;
+        top: 70%;
+    }
+
+    #story6 > img{
+        left: 25%;
+        top: 125%;
+    }
+
+    /*9 stories*/
+    /*11 elements*/
+
 
 </style>
 <body>
     <div id="wrapper">
        <div id="story0" class="story">
-           <audio class="storiesAudio"><source src="audio/ain't_nobody.mp3"></source></audio>
-           <img src="images/static/story0.jpg">
-       </div>
+           <audio class="storiesAudio"><source src="audio/Cody.mp3"></source></audio>
+           <img src="images/static/CODY.png">
+       </div><br><br>
         <div id="story1" class="story">
             <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/story1.jpg">
+            <img src="images/static/.png">
         </div>
         <div id="story2" class="story">
-            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/story2.jpg">
+            <audio class="storiesAudio"><source src="audio/Anna.mp3"></source></audio>
+            <img src="images/static/anna-bana.png">
+        </div>
+        <div id="story3" class="story">
+            <audio class="storiesAudio"><source src="audio/James.mp3"></source></audio>
+            <img src="images/static/JAMES.png">
+        </div>
+        <div id="story4" class="story">
+            <audio class="storiesAudio"><source src="audio/Jessica.mp3"></source></audio>
+            <img src="images/static/jess.png">
+        </div>
+        <div id="story5" class="story">
+            <audio class="storiesAudio"><source src="audio/Venessa.mp3"></source></audio>
+            <img src="images/static/VANESSA.png">
+        </div>
+        <div id="story6" class="story">
+            <audio class="storiesAudio"><source src="audio/Alyssa.mp3"></source></audio>
+            <img src="images/static/ALYSSA.png">
+        </div>
+        <div id="story7" class="story">
+            <audio class="storiesAudio"><source src="audio/.mp3"></source></audio>
+            <img src="images/static/story7.jpg">
+        </div>
+        <div id="story8" class="story">
+            <audio class="storiesAudio"><source src="audio/.mp3"></source></audio>
+            <img src="images/static/story8.jpg">
+        </div>
+        <div id="story9" class="story">
+            <audio class="storiesAudio"><source src="audio/.mp3"></source></audio>
+            <img src="images/static/story9.jpg">
         </div>
         <div id="element0">
             <img src="images/static/element0.jpg">
@@ -70,30 +124,6 @@
         </div>
         <div id="element2">
             <img src="images/static/element2.jpg">
-        </div>
-        <div id="story3" class="story">
-            <audio class="storiesAudio"><source src="audio/ain't_nobody.mp3"></source></audio>
-            <img src="images/static/story3.jpg">
-        </div>
-        <div id="story4" class="story">
-            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/story4.jpg">
-        </div>
-        <div id="story5" class="story">
-            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/story5.jpg">
-        </div>
-        <div id="story6" class="story">
-            <audio class="storiesAudio"><source src="audio/ain't_nobody.mp3"></source></audio>
-            <img src="images/static/story6.jpg">
-        </div>
-        <div id="story7" class="story">
-            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/story7.jpg">
-        </div>
-        <div id="story8" class="story">
-            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/story8.jpg">
         </div>
         <div id="element3">
             <img src="images/static/element3.jpg">
@@ -113,6 +143,15 @@
         <div id="element8">
             <img src="images/static/element8.jpg">
         </div>
+        <div id="element9">
+            <img src="images/static/element9.jpg">
+        </div>
+        <div id="element8">
+            <img src="images/static/element10.jpg">
+        </div>
+        <div id="element8">
+            <img src="images/static/element11.jpg">
+        </div>
     </div>
 
     <script>
@@ -120,32 +159,32 @@
         $('.story > img').hover(function(){animate(this)}, function(){reset(this)});
 
         var stories_animations_urls = {
-            "story0": "images/animations/rose_pepsi108.png",
-            "story1": "images/animations/rose_pepsi108.png",
-            "story2": "images/animations/rose_pepsi108.png",
-            "story3": "images/animations/rose_pepsi108.png",
-            "story4": "images/animations/rose_pepsi108.png",
-            "story5": "images/animations/rose_pepsi108.png",
-            "story6": "images/animations/rose_pepsi108.png",
-            "story7": "images/animations/rose_pepsi108.png",
-            "story8": "images/animations/rose_pepsi108.png",
+            "story0": "images/animations/CODY.gif",
+            "story1": "images/animations/rose_pepsi108.gif",
+            "story2": "images/animations/anna-bana.gif",
+            "story3": "images/animations/JAMES.gif",
+            "story4": "images/animations/jess.gif",
+            "story5": "images/animations/VANESSA.gif",
+            "story6": "images/animations/ALYSSA.gif",
+            "story7": "images/animations/rose_pepsi108.gif",
+            "story8": "images/animations/rose_pepsi108.gif",
         }
 
         var stories_original_urls = {
-            "story0": "images/static/el0.jpg",
-            "story1": "images/static/el1.jpg",
-            "story2": "images/static/el2.jpg",
-            "story3": "images/static/el2.jpg",
-            "story4": "images/static/el2.jpg",
-            "story5": "images/static/el2.jpg",
-            "story6": "images/static/el0.jpg",
-            "story7": "images/static/el1.jpg",
-            "story8": "images/static/el2.jpg",
+            "story0": "images/static/CODY.png",
+            "story1": "images/static/rose_pepsi000.png",
+            "story2": "images/static/anna-bana.png",
+            "story3": "images/static/JAMES.png",
+            "story4": "images/static/jess.png",
+            "story5": "images/static/VANESSA.png",
+            "story6": "images/static/ALYSSA.png",
+            "story7": "images/static/el1.png",
+            "story8": "images/static/el2.png",
         };
 
         var animate = function (img) {
             var element =  $(img).parent()[0];
-            var animation_url = stories_animations_urls[element.id] + "?p" + new Date().getTime();//workaroud gif caching.
+            var animation_url = stories_animations_urls[element.id] + "?p" + new Date().getTime();//workaroud gif caching
             img.src = animation_url;
                 play_story(element.id);
         }
