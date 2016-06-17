@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src = "jquery-2.2.4.min.js"></script>
+    <script src = "script/jquery-2.2.4.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlas</title>
@@ -21,8 +21,15 @@
     }
 
     img{
-        width: 30%;
         position: absolute;
+    }
+
+    .story > img, #title > img{
+        width: 30%;
+    }
+
+    .element > img{
+        width: 15%
     }
 
     #wrapper > div{
@@ -30,127 +37,188 @@
         /*position: absolute;*/
     }
 
-    #story0{
-        left: 1%;
-        top: 1%;
+    #title > img{
+        left: 33%;
+        top: -20%;
+    }
+
+    #story0 > img{
+        z-index: -2;
     }
 
     #story1 > img{
-        top: 90%;
-        left: 10%;
+        top: 60%;
+        z-index: -2;
     }
 
     #story2 > img{
-        top: 60%;
-    }
-
-    #element0{
-        left: 8%;
-        top: 80%;
+        left: 35%;
+        top: 30%;
+        /*z-index: 1;*/
     }
 
     #story3 > img{
-        left: 30%;
-        top: 40%;
+        left: 34%;
+        top: 106%;
     }
 
     #story4 > img{
-        left: 25%;
-        top: 85%;
+        right: 6%;
+        top: 68%;
+        z-index: 1;
     }
 
     #story5 > img{
-        right: 10%;
-        top: 70%;
+        left: 36%;
+        top: 156%;
+        z-index: -1;
     }
 
     #story6 > img{
-        left: 25%;
-        top: 125%;
+        right: 7%;
+        top: 12%;
+        z-index: 1;
     }
 
-    /*9 stories*/
-    /*11 elements*/
+    #story7 > img{
+        right: -2%;
+        top: 126%;
+    }
 
+    #story8 > img{
+        top: 135%;
+    }
+
+    #element0 > img{
+        top: 45%;
+        left: 20%;
+    }
+
+    #element1 > img{
+        top: 82%;
+        left: 27%;
+        z-index: 1;
+    }
+
+    #element2 > img{
+        top: 57%;
+        right: 1%;
+        z-index: 1;
+    }
+
+    #element3 > img{
+        right: 32%;
+        top: 83%;
+    }
+
+    #element4 > img{
+        top: 116%;
+    }
+
+    #element5 > img{
+        top: 128%;
+        left: 23%;
+    }
+
+    #element6 > img{
+        right: 25%;
+        top: 140%;
+    }
+
+    #element6 > img{
+        right: 25%;
+        top: 140%;
+    }
+
+    #element7 > img{
+        left: 24%;
+        top: 167%;
+        z-index: -2;
+    }
+
+    #element8 > img{
+        right: 12%;
+        top: 175%;
+    }
 
 </style>
 <body>
     <div id="wrapper">
+        <div id="Best Countries">
+            <audio class="storiesAudio" autoplay><source src="audio/title.mp3"></source></audio>
+            <img src="images/animations/title.gif">
+        </div>
        <div id="story0" class="story">
            <audio class="storiesAudio"><source src="audio/Cody.mp3"></source></audio>
            <img src="images/static/CODY.png">
-       </div><br><br>
+       </div>
         <div id="story1" class="story">
-            <audio class="storiesAudio"><source src="audio/locked_away.mp3"></source></audio>
-            <img src="images/static/.png">
-        </div>
-        <div id="story2" class="story">
             <audio class="storiesAudio"><source src="audio/Anna.mp3"></source></audio>
             <img src="images/static/anna-bana.png">
         </div>
-        <div id="story3" class="story">
+        <div id="story2" class="story">
             <audio class="storiesAudio"><source src="audio/James.mp3"></source></audio>
             <img src="images/static/JAMES.png">
         </div>
-        <div id="story4" class="story">
+        <div id="story3" class="story">
             <audio class="storiesAudio"><source src="audio/Jessica.mp3"></source></audio>
             <img src="images/static/jess.png">
         </div>
-        <div id="story5" class="story">
-            <audio class="storiesAudio"><source src="audio/Venessa.mp3"></source></audio>
+        <div id="story4" class="story">
+            <audio class="storiesAudio"><source src=""></source></audio>
             <img src="images/static/VANESSA.png">
         </div>
-        <div id="story6" class="story">
+        <div id="story5" class="story">
             <audio class="storiesAudio"><source src="audio/Alyssa.mp3"></source></audio>
             <img src="images/static/ALYSSA.png">
         </div>
+        <div id="story6" class="story">
+            <audio class="storiesAudio"><source src="audio/Rebekah.mp3"></source></audio>
+            <img src="images/static/rebekah.png">
+        </div>
         <div id="story7" class="story">
-            <audio class="storiesAudio"><source src="audio/.mp3"></source></audio>
-            <img src="images/static/story7.jpg">
+            <audio class="storiesAudio"><source src="audio/Angel.mp3"></source></audio>
+            <img src="images/static/angel.png">
         </div>
         <div id="story8" class="story">
-            <audio class="storiesAudio"><source src="audio/.mp3"></source></audio>
-            <img src="images/static/story8.jpg">
+            <audio class="storiesAudio"><source src="audio/Rose.mp3"></source></audio>
+            <img src="images/static/rose.png">
         </div>
-        <div id="story9" class="story">
-            <audio class="storiesAudio"><source src="audio/.mp3"></source></audio>
-            <img src="images/static/story9.jpg">
+        <div id="element0" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/lips.png">
         </div>
-        <div id="element0">
-            <img src="images/static/element0.jpg">
+        <div id="element1" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/chief.png">
         </div>
-        <div id="element1">
-            <img src="images/static/element1.jpg">
+        <div id="element2" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/eagle.png">
         </div>
-        <div id="element2">
-            <img src="images/static/element2.jpg">
+        <div id="element3" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/football.png">
         </div>
-        <div id="element3">
-            <img src="images/static/element3.jpg">
+        <div id="element4" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/boot.png">
         </div>
-        <div id="element4">
-            <img src="images/static/element4.jpg">
+        <div id="element5" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/dice.png">
         </div>
-        <div id="element5">
-            <img src="images/static/element5.jpg">
+        <div id="element6" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/cards.png">
         </div>
-        <div id="element6">
-            <img src="images/static/element6.jpg">
+        <div id="element7" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/stars.png">
         </div>
-        <div id="element7">
-            <img src="images/static/element7.jpg">
-        </div>
-        <div id="element8">
-            <img src="images/static/element8.jpg">
-        </div>
-        <div id="element9">
-            <img src="images/static/element9.jpg">
-        </div>
-        <div id="element8">
-            <img src="images/static/element10.jpg">
-        </div>
-        <div id="element8">
-            <img src="images/static/element11.jpg">
+        <div id="element8" class="element">
+            <audio class="storiesAudio"><source src="audio/random.mp3"></source></audio>
+            <img src="images/static/kaktus.png">
         </div>
     </div>
 
@@ -160,26 +228,26 @@
 
         var stories_animations_urls = {
             "story0": "images/animations/CODY.gif",
-            "story1": "images/animations/rose_pepsi108.gif",
-            "story2": "images/animations/anna-bana.gif",
-            "story3": "images/animations/JAMES.gif",
-            "story4": "images/animations/jess.gif",
-            "story5": "images/animations/VANESSA.gif",
-            "story6": "images/animations/ALYSSA.gif",
-            "story7": "images/animations/rose_pepsi108.gif",
-            "story8": "images/animations/rose_pepsi108.gif",
+            "story1": "images/animations/anna-bana.gif",
+            "story2": "images/animations/JAMES.gif",
+            "story3": "images/animations/jess.gif",
+            "story4": "images/animations/VANESSA.gif",
+            "story5": "images/animations/ALYSSA.gif",
+            "story6": "images/animations/rebekah.gif",
+            "story7": "images/animations/angel.gif",
+            "story8": "images/animations/rose.gif"
         }
 
         var stories_original_urls = {
             "story0": "images/static/CODY.png",
-            "story1": "images/static/rose_pepsi000.png",
-            "story2": "images/static/anna-bana.png",
-            "story3": "images/static/JAMES.png",
-            "story4": "images/static/jess.png",
-            "story5": "images/static/VANESSA.png",
-            "story6": "images/static/ALYSSA.png",
-            "story7": "images/static/el1.png",
-            "story8": "images/static/el2.png",
+            "story1": "images/static/anna-bana.png",
+            "story2": "images/static/JAMES.png",
+            "story3": "images/static/jess.png",
+            "story4": "images/static/VANESSA.png",
+            "story5": "images/static/ALYSSA.png",
+            "story6": "images/static/rebekah.png",
+            "story7": "images/static/angel.png",
+            "story8": "images/static/rose.png"
         };
 
         var animate = function (img) {
@@ -207,45 +275,49 @@
         }
 
         var elements_animation_urls = {
-            "element0": "images/animations/light.gif",
-            "element1": "images/animations/light.gif",
-            "element2": "images/animations/light.gif",
-            "element3": "images/animations/light.gif",
-            "element4": "images/animations/light.gif",
-            "element5": "images/animations/light.gif",
-            "element6": "images/animations/light.gif",
-            "element7": "images/animations/light.gif",
-            "element8": "images/animations/light.gif"
+            "element0": "images/animations/lips.gif",
+            "element1": "images/animations/chief.gif",
+            "element2": "images/animations/eagle.gif",
+            "element3": "images/animations/football.gif",
+            "element4": "images/animations/boot.gif",
+            "element5": "images/animations/dice.gif",
+            "element6": "images/animations/cards.gif",
+            "element7": "images/animations/stars.gif",
+            "element8": "images/animations/kaktus.gif"
         }
 
         var elements_original_urls = {
-            "element0": "images/static/el2.jpg",
-            "element1": "images/static/el2.jpg",
-            "element2": "images/static/el2.jpg",
-            "element3": "images/static/el2.jpg",
-            "element4": "images/static/el2.jpg",
-            "element5": "images/static/el2.jpg",
-            "element6": "images/static/el2.jpg",
-            "element7": "images/static/el2.jpg",
-            "element8": "images/static/el2.jpg"
+            "element0": "images/static/lips.png",
+            "element1": "images/static/chief.png",
+            "element2": "images/static/eagle.png",
+            "element3": "images/static/football.png",
+            "element4": "images/static/boot.png",
+            "element5": "images/static/dice.png",
+            "element6": "images/static/cards.png",
+            "element7": "images/static/stars.png",
+            "element8": "images/static/kaktus.png"
         }
 
-        //var animate_interval = setInterval(random_animate, 2000);
+        var animate_interval = setInterval(random_animate, 2000);
 
         function random_animate() {
             var element_id = pick_random_element(elements_animation_urls);
             console.log("now animating "+ element_id);
             console.log(element_id);
             var animation_url = elements_animation_urls[element_id] + "?p" + new Date().getTime();//workaroud gif caching.
-            $("#"+element_id).children()[0].src = animation_url;
+            $("#"+element_id).children()[1].src = animation_url;
+            var audio = $("#"+element_id).children('audio')[0];
+            audio.play();
             var reset_interval = setInterval(random_reset(), 2000);
             }
 
             function random_reset() {
                 var element = pick_random_element(elements_animation_urls);
                 console.log("now reseting" + element);
-                var img = $("#"+element).children()[0];
+                var img = $("#"+element).children()[1];
                 img.src = elements_original_urls[element];
+                var audio = $("#"+element).children('audio')[0];
+                audio.play();
             }
 
             function pick_random_element(elements) {
