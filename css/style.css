@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #000000;
+}
+
+#wrapper{
+    display: block;
+}
+
+img{
+    position: absolute;
+}
+
+.story > img, #title > img{
+    width: 30%;
+}
+
+.element > img{
+    width: 15%
+}
+
+#title > img{
+    left: 33%;
+    top: -20%;
+}
+
+#cody > img{
+    z-index: -2;
+}
+
+#anna > img{
+    top: 60%;
+    z-index: -2;
+}
+
+#james > img{
+    left: 35%;
+    top: 30%;
+}
+
+#jess > img{
+    left: 34%;
+    top: 106%;
+}
+
+#vanessa > img{
+    right: 6%;
+    top: 68%;
+    z-index: 1;
+}
+
+#alyssa > img{
+    left: 36%;
+    top: 156%;
+    z-index: -1;
+}
+
+#rebekah > img{
+    right: 7%;
+    top: 12%;
+    z-index: 1;
+}
+
+#angel > img{
+    right: -2%;
+    top: 126%;
+}
+
+#rose > img{
+    top: 136%;
+}
+
+#lips > img{
+    top: 47%;
+    left: 23%;
+}
+
+#chief > img{
+    top: 82%;
+    left: 27%;
+    z-index: 1;
+}
+
+#eagle > img{
+    top: 57%;
+    right: 1%;
+    z-index: 1;
+}
+
+#football > img{
+    right: 32%;
+    top: 83%;
+}
+
+#boot > img{
+    top: 116%;
+}
+
+#dice > img{
+    top: 128%;
+    left: 23%;
+}
+
+#cards > img{
+    right: 25%;
+    top: 140%;
+}
+
+#stars > img{
+    left: 24%;
+    top: 167%;
+    z-index: -2;
+}
+
+#kaktus > img{
+    right: 12%;
+    top: 175%;
+}
